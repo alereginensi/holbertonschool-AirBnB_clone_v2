@@ -118,9 +118,9 @@ class HBNBCommand(cmd.Cmd):
         """ Creates a new instance of BaseModel, and handle
         arguments """
         try:
-            if not args:
+            if not arg:
                 raise SyntaxError()
-            args_list = args.split(" ")
+            args_list = arg.split(" ")
             obj = eval("{}()".format(args_list[0]))
             for param in args_list[1:]:
                 my_param = param.split("=")
