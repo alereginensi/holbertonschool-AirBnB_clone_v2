@@ -114,12 +114,9 @@ class HBNBCommand(cmd.Cmd):
         """ Overrides the emptyline method of CMD """
         pass
 
-    def do_create(self, args):
-        """Creates a new instance of BaseModel, saves it
-        Exceptions:
-            SyntaxError: when there is no args given
-            NameError: when there is no object that has the name
-        """
+    def do_create(self, arg):
+        """ Creates a new instance of BaseModel, and handle
+        arguments """
         try:
             if not args:
                 raise SyntaxError()
