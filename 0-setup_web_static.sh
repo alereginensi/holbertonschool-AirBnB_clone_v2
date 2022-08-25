@@ -3,18 +3,25 @@
 
 sudo apt-get update
 sudo apt-get -y install nginx
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-service nginx start
-touch /data/
-touch /data/web_static/
-touch /data/web_static/releases/
-touch /data/web_static/shared/
-touch /data/web_static/releases/test/
-touch /data/web_static/releases/test/index.html
-ln -s /data/web_static/current /data/web_static/releases/test/
-chown ubuntu:ubuntu /data/
-
-#location /data/web_static/current/ {
-#	alias hbnb_static;
-#	autoindex off;
-#}
+sudo service nginx start
+sudo mkdir /data/
+sudo mkdir /data/web_static/
+sudo mkdir /data/web_static/releases/
+sudo mkdir /data/web_static/shared/
+sudo mkdir /data/web_static/releases/test/
+sudo touch /data/web_static/releases/test/index.html
+echo "
+<html>
+ <head>
+   <title>
+   Holberton School (title)
+   </title>
+ </head>
+ <body>
+   Holberton School (body)
+ </body>
+ </html>" > sudo /data/web_static/releases/test/index.html
+sudo ln -s /data/web_static/current /data/web_static/releases/test/
+sudo chown ubuntu:ubuntu /data/
+sudo sed -i '/listen 80 default_server/a location /hbnb_static/ {alias /data/web_static/current/;}' /etc/nginx/sites-available/default
+sudo service nginx restart
