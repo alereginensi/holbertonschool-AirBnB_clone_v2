@@ -8,6 +8,10 @@ from datetime import datetime
 
 
 def do_pack():
+    """
+    Script that generates a .tgz archive from the contents of the web_static
+    folder
+    """
     name = "web_static_" +\
             datetime.strftime(datetime.now(), "%Y%m%d%H%M%S") + ".tgz"
     local("mkdir -p versions")
