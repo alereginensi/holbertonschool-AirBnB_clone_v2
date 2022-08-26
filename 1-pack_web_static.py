@@ -9,13 +9,12 @@ from time import strftime
 
 def do_pack():
     """
-    Script that generates a .tgz archive from the contents of
-    the web_static folder
+    Script that generates a .tgz archive
     """
-    name = "versions/web_static_{}.tgz".format(time)
     local("mkdir -p versions")
+    name = "versions/web_static_{}.tgz".format(time)
     try:
-        local("tar -czvf ./versions/{} ./web_static" .format(name))
+        local("tar -czvf {} web_static/".format(name))
         return(name)
     except(Exception):
         return(None)
