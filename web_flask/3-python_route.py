@@ -31,7 +31,7 @@ def text(text):
 def text_2(text):
     '''display “Python ”, followed by the value of the text variable'''
     parce_text = escape(text.replace('_', ' '))
-    return f'Python {parce_text}'
+    return 'Python {}'.format(parce_text)
 
 
 if __name__ == "__main__":
