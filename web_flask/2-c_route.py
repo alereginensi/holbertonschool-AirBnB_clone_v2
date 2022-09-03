@@ -23,7 +23,7 @@ def HBNB():
 def text(text):
     '''/c/<text>: display “C ” followed by the value of the text variable'''
     parce_text = escape(text.replace('_', ' '))
-    return 'C {}'.format(text)
+    return 'C {}'.format(parce_text)
 
 
 if __name__ == "__main__":
