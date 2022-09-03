@@ -24,7 +24,7 @@ def HBNB():
 def text(text):
     '''/c/<text>: display “C ” followed by the value of the text variable'''
     parce_text = escape(text.replace('_', ' '))
-    return f'C {parce_text}'
+    return 'C {}'.format(parce_text)
 
 
 @app.route("/python", defaults={'text': "is cool"}, strict_slashes=False)
@@ -32,13 +32,13 @@ def text(text):
 def text_2(text):
     '''display “Python ”, followed by the value of the text variable'''
     parce_text = escape(text.replace('_', ' '))
-    return f'Python {parce_text}'
+    return 'Python {}'.format(parce_text)
 
 
 @app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
     '''display “n is a number” only if n is an integer'''
-    return f'{n} is a number'
+    return '{n} is a number'.format(n)
 
 
 @app.route("/number_template/<int:n>", strict_slashes=False)
